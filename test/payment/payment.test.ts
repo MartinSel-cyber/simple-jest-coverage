@@ -65,4 +65,10 @@ describe('PaymentService', () => {
       expect(Payment.pay()).toBe(false)
     })
   })
+  test('applies multiple discounts to the current amount', () => {
+    Payment.applyDiscount(20)
+    Payment.applyDiscount(50)
+
+    expect((Payment as any).amount).toBe(40)
+  })
 })
